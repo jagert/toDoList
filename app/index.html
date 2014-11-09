@@ -2,7 +2,7 @@
 <html ng-app="todoApp">
 	<head>
 	    <meta charset="utf-8">
-	    <title>O.W.E.S.O.M.E.2000</title>
+	    <title>A.W.E.S.O.M.E.2000</title>
 	    <link rel="shortcut icon" href="./img/favicon.ico">
 	    
 	    <link type="text/css" rel="stylesheet" href="css/styles.css"/>
@@ -34,6 +34,8 @@
 			<div class="task-list">
 				<div class="task" ng-repeat="task in taskList | filterTasks : filterBy track by $index">
 					<div>- {{task.name}}</div>
+					<div class="icon-completed"
+						 ng-show="isCompleted(task)"><img src="./img/ok.png"></div>
 					<div class="completed"
 						 ng-show="isCompleted(task)">completed</div>
 					<div class="complete-button"

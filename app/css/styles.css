@@ -26,12 +26,13 @@
 }
 .main-form .input-task .add-button {
 	position: absolute;
-	top: 1px;
+	top: 0px;
 	right: 3px;
 	background-color: rgb(63, 180, 185);
 	padding: 10px;
 	font-size: 24px;
-	cursor:	pointer;
+	cursor: pointer;
+	height: 28px;
 }
 .main-form .filters {
 	padding: 1px;
@@ -51,6 +52,16 @@
 	margin: 2px;
 	padding: 5px;
 	position: relative;
+}
+.main-form .task-list .icon-completed {
+	width: 22px;
+	height: auto;
+	position: absolute;
+	right: 77px;
+	top: 3px;
+}
+.main-form .task-list .icon-completed img {
+	width: 100%;
 }
 .main-form .task-list .completed {
 	position: absolute;

@@ -26,12 +26,22 @@
 }
 .main-form .input-task .add-button {
 	position: absolute;
-	top: 3px;
+	top: 1px;
 	right: 3px;
 	background-color: rgb(63, 180, 185);
 	padding: 10px;
 	font-size: 24px;
 	cursor:	pointer;
+}
+.main-form .filters {
+	padding: 1px;
+	margin-top: 10px;
+}
+.main-form .filters .filter-button {
+	display: inline-block;
+	background-color: rgb(228, 14, 144);
+	padding: 2px;
+	cursor: pointer;
 }
 .main-form .task-list {
 	margin-top: 10px;

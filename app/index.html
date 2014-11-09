@@ -17,25 +17,22 @@
 			<div class="title">Tasks List:</div>
 			<div class="input-task">
 				<input class="input"
-				   ng-model="newTaskName"
-				   placeholder="Input task name"
-				   ng-keyup="addTask($event)"/>
+				   	   ng-model="newTaskName"
+				   	   placeholder="Input task name"
+				       ng-keyup="addTask($event)"/>
 				<div class="add-button"
 					 ng-click="addTask()">add task</div>
 			</div>
-			<div class="filters" ng-switch="filterBy">
+			<div class="filters">
 				<div class="filter-button" 
-					 ng-click="setFilter('all')"
-					 ng-switch-when="'all'">Show all tasks</div>
+					 ng-click="setFilter('all')">Show all tasks</div>
 				<div class="filter-button" 
-					 ng-click="setFilter('compl')"
-					 ng-switch-when="'completed'">Show completed tasks</div>
+					 ng-click="setFilter('completed')">Show completed tasks</div>
 				<div class="filter-button" 
-					 ng-click="setFilter('uncompl')"
-					 ng-switch-when="'uncompleted'">Show uncompleted tasks</div>
+					 ng-click="setFilter('uncompleted')">Show uncompleted tasks</div>
 			</div>
 			<div class="task-list">
-				<div class="task" ng-repeat="task in taskList track by $index">
+				<div class="task" ng-repeat="task in taskList | filterTasks : filterBy track by $index">
 					<div>- {{task.name}}</div>
 					<div class="completed"
 						 ng-show="isCompleted(task)">completed</div>

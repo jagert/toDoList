@@ -20,8 +20,11 @@ angular.module('todoApp', ['underscore'])
 .controller('ListCtrl', function($scope) {
 	$scope.taskList = localStorage.taskList ? JSON.parse(localStorage.taskList) : [];
 	$scope.$watch('taskList.length', function() {
-		console.log('taskList');
 		localStorage.taskList = JSON.stringify($scope.taskList);
+	});
+	$scope.$watch('changed', function() {
+		localStorage.taskList = JSON.stringify($scope.taskList);
+		$scope.changed = false;
 	});
 	$scope.newTaskName = '';
 	$scope.filterBy = 'all';
@@ -29,7 +32,7 @@ angular.module('todoApp', ['underscore'])
 	$scope.addTask = function($event) {
 		if($scope.newTaskName != '') {
 			if($event === undefined || $event && $event.keyCode === 13) {
-				$scope.taskList.push({name: $scope.newTask, status: 0});
+				$scope.taskList.push({name: $scope.newTaskName, status: 0});
 				$scope.newTaskName = '';
 			}
 		}
@@ -42,6 +45,7 @@ angular.module('todoApp', ['underscore'])
 	$scope.completeTask = function(task) {
 		if(task.status === 0) {
 			task.status = 1;
+			$scope.changed = true;
 		}
 	}
 
@@ -51,8 +55,7 @@ angular.module('todoApp', ['underscore'])
 })
 .filter('filterTasks', function() {
     return function(data, filterBy) {
-    	console.log('filterby',filterBy);
-        return _.filter(data, function(obj) {
+    	return _.filter(data, function(obj) {
         	return filterBy === 'all' ||
         		   filterBy === 'completed' && obj.status === 1 ||
         		   filterBy === 'uncompleted' && obj.status === 0

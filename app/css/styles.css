@@ -1,0 +1,59 @@
+.main-form {
+	background-color: rgb(65, 202, 87);
+	margin: 10px;
+	padding: 10px;
+	border-radius: 5px;
+	width: 500px;
+}
+.main-form .title {
+	display: block;
+	font-size: 2em;
+	-webkit-margin-before: 0.67em;
+	-webkit-margin-after: 0.67em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+	text-align: center;	
+}
+.main-form .input-task {
+	position: relative;
+}
+.main-form .input-task .input {
+	font-size: 24px;
+	line-height: 1.4em;
+	padding: 6px;
+	width: 482px;
+}
+.main-form .input-task .add-button {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	background-color: rgb(63, 180, 185);
+	padding: 10px;
+	font-size: 24px;
+	cursor:	pointer;
+}
+.main-form .task-list {
+	margin-top: 10px;
+}
+.main-form .task {
+	background-color: rgb(223, 215, 51);
+	margin: 2px;
+	padding: 5px;
+	position: relative;
+}
+.main-form .task-list .completed {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background-color: rgb(63, 180, 185);
+	padding: 5px;
+}
+.main-form .task-list .complete-button {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background-color: rgb(63, 180, 185);
+	padding: 5px;
+	cursor:	pointer;
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="todoApp">
+	<head>
+	    <meta charset="utf-8">
+	    <title>O.W.E.S.O.M.E.2000</title>
+	    <link rel="shortcut icon" href="./img/favicon.ico">
+	    
+	    <link type="text/css" rel="stylesheet" href="css/styles.css"/>
+	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+	    <script src="http://underscorejs.org/underscore-min.js"></script>
+	    <script type="text/javascript" src="./js/main.js"></script>
+	</head>
+	<body>
+		<!-- <div ng-view></div> -->
+		<div class="main-form" ng-controller="ListCtrl">
+			<div class="title">Tasks List:</div>
+			<div class="input-task">
+				<input class="input"
+				   ng-model="newTaskName"
+				   placeholder="Input task name"
+				   ng-keyup="addTask($event)"/>
+				<div class="add-button"
+					 ng-click="addTask()">add task</div>
+			</div>
+			<div class="filters" ng-switch="filterBy">
+				<div class="filter-button" 
+					 ng-click="setFilter('all')"
+					 ng-switch-when="'all'">Show all tasks</div>
+				<div class="filter-button" 
+					 ng-click="setFilter('compl')"
+					 ng-switch-when="'completed'">Show completed tasks</div>
+				<div class="filter-button" 
+					 ng-click="setFilter('uncompl')"
+					 ng-switch-when="'uncompleted'">Show uncompleted tasks</div>
+			</div>
+			<div class="task-list">
+				<div class="task" ng-repeat="task in taskList track by $index">
+					<div>- {{task.name}}</div>
+					<div class="completed"
+						 ng-show="isCompleted(task)">completed</div>
+					<div class="complete-button"
+						 ng-show="!isCompleted(task)"
+						 ng-click="completeTask(task)">complete task</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

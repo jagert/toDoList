@@ -4,19 +4,6 @@ angular.module('underscore', [])
 });
 
 angular.module('todoApp', ['underscore'])
-// .config(function($routeProvider) {
-// 	$routeProvider
-// 		.when('/login', {
-// 			controller:'LoginCtrl',
-// 			templateUrl:'view/login.html'
-// 		}).when('/todolist', {
-// 			controller:'ListCtrl',
-// 			templateUrl:'todoList.html'
-// 		})
-// 		.otherwise({
-// 			redirectTo:'/login'
-// 		});
-// })
 .controller('ListCtrl', function($scope) {
 	$scope.taskList = localStorage.taskList ? JSON.parse(localStorage.taskList) : [];
 	$scope.$watch('taskList.length', function() {
